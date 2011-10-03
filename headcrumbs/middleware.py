@@ -12,7 +12,7 @@ class CrumbsMiddleware(object):
     if self._view is None:
       return response
 
-    p = self._view.parent
+    p = self._view
     view_path = []
     while (p is not None):
       view_path.append(p.as_dict())
