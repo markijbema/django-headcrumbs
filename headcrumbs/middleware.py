@@ -2,6 +2,7 @@
 
 import headcrumbs as hc
 from headcrumbs import CrumbedView
+from django.template import Context
 
 class CrumbsMiddleware(object):
   def process_view(self, request, view_func, view_args, view_kwargs):
@@ -9,7 +10,7 @@ class CrumbsMiddleware(object):
 
   def process_template_response(self, request, response):
     if self._view is None:
-      return response.context_data
+      return response
 
     p = self._view.parent
     view_path = []
